@@ -35,7 +35,7 @@ async def game_state_handler(data):
         logging.warning("got state request {}".format(game_phase))
         if game_phase == "GameStart" and not in_game or game_phase in c.END_GAME_STATES and in_game:
             in_game = not in_game
-            # swap_monitors()
+            swap_monitors()
     except:
         pass
 
