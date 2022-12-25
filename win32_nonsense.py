@@ -9,9 +9,14 @@ import win32con as winc
 # store a choice of what monitor to switch to. Any suggestions would be much appreciated.
 def swap_monitors():
     monitor_handle_list = win32.EnumDisplayMonitors()
-    if len(monitor_handle_list) != 2:
-        raise ValueError("[FATAL] Detected {} monitors (swap only works with 2 monitors)".format(len(monitor_handle_list)))
-
+    # live dangerously, kids
+    # if len(monitor_handle_list) != 2:
+    #    raise ValueError("[FATAL] Detected {} monitors (swap only works with 2 monitors)".format(len(monitor_handle_list)))
+    if len(monitor_list_handle) == 1:
+        raise ValueError("[FATAL] Only detected 1 monitor. What are you doing?")
+    elif len(monitor_handle_list) > 2:
+        print("Detected {} monitors. Asusming the first two are the intended two...")
+    
     monitor_0_info = win32.GetMonitorInfo(monitor_handle_list[0][0])
     monitor_1_info = win32.GetMonitorInfo(monitor_handle_list[1][0])
     new_primary_monitor = monitor_1_info if monitor_0_info['Flags'] & c.PRIMARY_MONITOR_I_THINK else monitor_0_info
