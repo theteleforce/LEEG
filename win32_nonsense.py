@@ -15,7 +15,7 @@ def swap_monitors():
     if len(monitor_handle_list) == 1:
         raise ValueError("[FATAL] Only detected 1 monitor. What are you doing?")
     elif len(monitor_handle_list) > 2:
-        print("Detected {} monitors. Asusming the first two are the intended two...")
+        print("Detected {} monitors. Asusming the first two are the intended two...", len(monitor_handle_list))
     
     monitor_0_info = win32.GetMonitorInfo(monitor_handle_list[0][0])
     monitor_1_info = win32.GetMonitorInfo(monitor_handle_list[1][0])
