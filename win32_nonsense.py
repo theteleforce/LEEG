@@ -12,7 +12,7 @@ def swap_monitors():
     # live dangerously, kids
     # if len(monitor_handle_list) != 2:
     #    raise ValueError("[FATAL] Detected {} monitors (swap only works with 2 monitors)".format(len(monitor_handle_list)))
-    if len(monitor_list_handle) == 1:
+    if len(monitor_handle_list) == 1:
         raise ValueError("[FATAL] Only detected 1 monitor. What are you doing?")
     elif len(monitor_handle_list) > 2:
         print("Detected {} monitors. Asusming the first two are the intended two...")
